@@ -63,6 +63,7 @@ public class AddSubjectFragment extends Fragment implements View.OnClickListener
         switch (view.getId()){
             case R.id.btnSaveSubject:
                 saveSubject(idSemester);
+                break;
         }
     }
 

@@ -79,22 +79,23 @@ public class CalificationActivity extends AppCompatActivity implements View.OnCl
         switch (view.getId()){
             case R.id.saveCalification:
                 saveCalification(idSubject);
+                break;
         }
     }
 
     private void saveCalification(int idSubject) {
-        Calification calification= new Calification();
-        calification.setNote1(Double.parseDouble(edtTxtNote1.getText().toString()));
-        calification.setNote2(Double.parseDouble(edtTxtNote2.getText().toString()));
-        calification.setNote3(Double.parseDouble(edtTxtNote3.getText().toString()));
-        calification.setNoteAdd(Double.parseDouble(edtTxtNoteAdd.getText().toString()));
-        calification.setFinalNote(Double.parseDouble(txtVwFinalNote.getText().toString()));
-        calification.setIdSubject(idSubject);
+        Calification calification2= new Calification();
+        calification2.setNote1(Double.parseDouble(edtTxtNote1.getText().toString()));
+        calification2.setNote2(Double.parseDouble(edtTxtNote2.getText().toString()));
+        calification2.setNote3(Double.parseDouble(edtTxtNote3.getText().toString()));
+        calification2.setNoteAdd(Double.parseDouble(edtTxtNoteAdd.getText().toString()));
+        calification2.setFinalNote(Double.parseDouble(txtVwFinalNote.getText().toString()));
+        calification2.setIdSubject(idSubject);
 
         final ProgressDialog loading = ProgressDialog.show(this,"Saving Data","Please wait...",false,false);
 
         CalificationService calificationService = ServiceGenerator.createService(CalificationService.class);
-        Call<Calification> call = calificationService.save(calification);
+        Call<Calification> call = calificationService.save(calification2);
         call.enqueue(new Callback<Calification>() {
             @Override
             public void onResponse(Call<Calification> call, Response<Calification> response) {
