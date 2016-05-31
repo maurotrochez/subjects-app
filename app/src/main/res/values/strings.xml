@@ -1,0 +1,23 @@
+<resources>
+    <string name="signed_in_fmt">Signed in as: %s</string>
+    <string name="app_name">Subjects App</string>
+    <string name="signing_in">Signing in…</string>
+    <string name="signed_out">Signed out</string>
+    <!-- Google Play Services error for Toast -->
+    <string name="play_services_error_fmt">Google Play Services Error: %i</string>
+    <string name="add_university">Add university</string>
+    <string name="add_semester">Add Semester</string>
+    <string name="teacher">Teacher</string>
+    <string name="add_subject">Add subject</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_subject_name">Add subject name</string>
+    <string name="add_subject_code">Add subject code</string>
+    <string name="add_subject_teacher">Add teacher</string>
+    <string name="note_1">Note 1</string>
+    <string name="note_2">Note 2</string>
+    <string name="note_3">Note 3</string>
+    <string name="note_add">Additional notes</string>
+    <string name="final_note">Final note</string>
+</resources>

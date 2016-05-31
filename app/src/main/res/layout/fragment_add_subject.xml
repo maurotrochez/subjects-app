@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.davidmautro.subjectsapp.AddSubjectFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:id="@+id/edtTxtSubjectCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="40dp"
+        android:hint="@string/add_subject_code">
+
+        <requestFocus />
+    </EditText>
+    <EditText
+        android:id="@+id/edtTxtAddSubjectName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_subject_name">
+
+        <requestFocus />
+    </EditText>
+    <EditText
+        android:id="@+id/edtTxtAddSubjectTeacher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_subject_teacher">
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/btnSaveSubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="OK" />
+
+</LinearLayout>
