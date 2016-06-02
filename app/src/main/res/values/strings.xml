@@ -15,9 +15,16 @@
     <string name="add_subject_name">Add subject name</string>
     <string name="add_subject_code">Add subject code</string>
     <string name="add_subject_teacher">Add teacher</string>
-    <string name="note_1">Note 1</string>
-    <string name="note_2">Note 2</string>
-    <string name="note_3">Note 3</string>
-    <string name="note_add">Additional notes</string>
+    <string name="note_1">Note 1 (25%)</string>
+    <string name="note_2">Note 2 (25%)</string>
+    <string name="note_3">Note 3 (30%)</string>
+    <string name="note_add">Additional notes (25%)</string>
     <string name="final_note">Final note</string>
+    <string name="subjects">Subjects</string>
+    <string name="universities">Universities</string>
+    <string name="add_university_name">Add university name</string>
+    <string name="add_semester_name">Add semester name</string>
+    <string name="add_semester_code">Add semester code</string>
+    <string name="semesters">Semesters</string>
+    <string name="signout">Signout</string>
 </resources>

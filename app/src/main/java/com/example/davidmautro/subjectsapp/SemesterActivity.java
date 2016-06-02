@@ -2,6 +2,7 @@ package com.example.davidmautro.subjectsapp;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,64 +22,31 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SemesterActivity extends AppCompatActivity implements ListView.OnItemClickListener{
+public class SemesterActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String ID_SEMESTER = "id_semester";
     ListView lstVwSemester;
     List<Semester> semesters;
+    Fragment fragmentListSemester, fragmentAddSemester;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_semester);
-
-        lstVwSemester = (ListView) findViewById(R.id.lstSemesters);
-        lstVwSemester.setOnItemClickListener(this);
-        Intent intent = getIntent();
-
-        int idUniversity = intent.getIntExtra(UniversityActivity.ID_UNIVERSITY, 0);
-
-        getSemesters(idUniversity);
-    }
-
-    private void getSemesters(int idUniversity) {
-        final ProgressDialog loading = ProgressDialog.show(this,"Fetching Data","Please wait...",false,false);
-        SemesterService semesterService = ServiceGenerator.createService(SemesterService.class);
-        Call<List<Semester>> call = semesterService.getSemestersByUniversity(idUniversity);
-        call.enqueue(new Callback<List<Semester>>() {
-            @Override
-            public void onResponse(Call<List<Semester>> call, Response<List<Semester>> response) {
-                loading.dismiss();
-                semesters = response.body();
-                showList();
-            }
-
-            @Override
-            public void onFailure(Call<List<Semester>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Error try to connect to server", Toast.LENGTH_SHORT).show();
-                loading.dismiss();
-            }
-
-        });
-    }
-
-    private void showList(){
-        String[] items = new String[semesters.size()];
-
-        for(int i=0; i<semesters.size(); i++){
-            items[i] = semesters.get(i).getName();
+        findViewById(R.id.btnAddSemester).setOnClickListener(this);
+        fragmentListSemester = new ListSemesterFragment();
+        fragmentAddSemester = new AddSemesterFragment();
+        if (savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction().add(R.id.containerSemesters, fragmentListSemester, "listSemesters").commit();
         }
-
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,items);
-
-        lstVwSemester.setAdapter(adapter);
     }
+
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Intent intent = new Intent(this, SubjectActivity.class);
-
-        Semester semester= semesters.get(i);
-        intent.putExtra(ID_SEMESTER,semester.getIdSemester());
-
-        startActivity(intent);
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btnAddSemester:
+                if(getSupportFragmentManager().findFragmentByTag("listSemesters").isVisible()){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.containerSemesters, fragmentAddSemester, "addSemester").addToBackStack(null).commit();
+                }
+        }
     }
 }

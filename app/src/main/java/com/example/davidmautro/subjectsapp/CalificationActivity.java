@@ -89,8 +89,11 @@ public class CalificationActivity extends AppCompatActivity implements View.OnCl
         calification2.setNote2(Double.parseDouble(edtTxtNote2.getText().toString()));
         calification2.setNote3(Double.parseDouble(edtTxtNote3.getText().toString()));
         calification2.setNoteAdd(Double.parseDouble(edtTxtNoteAdd.getText().toString()));
-        calification2.setFinalNote(Double.parseDouble(txtVwFinalNote.getText().toString()));
+        //calification2.setFinalNote(Double.parseDouble(txtVwFinalNote.getText().toString()));
         calification2.setIdSubject(idSubject);
+
+        double finalNote = (calification2.getNote1()*0.25)+(calification2.getNote2()*0.25)+(calification2.getNote3()*0.30)+(calification2.getNoteAdd()*0.25);
+        calification2.setFinalNote(finalNote);
 
         final ProgressDialog loading = ProgressDialog.show(this,"Saving Data","Please wait...",false,false);
 

@@ -6,7 +6,9 @@ import com.example.davidmautro.subjectsapp.model.User;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 /**
@@ -16,4 +18,7 @@ public interface UniversityService {
 
     @GET("users/{id_user}/universities/")
     Call<List<University>> getUniversitiesByUserId(@Path("id_user") int idUser);
+
+    @POST("universities")
+    Call<University> save(@Body University university);
 }

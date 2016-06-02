@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView1"
         android:gravity="center"
-        android:text="Materias"
+        android:text="@string/subjects"
         android:textSize="30sp" />
 
     <Button

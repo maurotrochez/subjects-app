@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,14 +10,35 @@
     tools:context="com.example.davidmautro.subjectsapp.UniversityActivity"
     android:orientation="vertical">
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="420dp"
-        android:id="@+id/lstUniversities">
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="148dp" />
 
-    </ListView>
-    <Button
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/add_university"/>
-</LinearLayout>
+        android:layout_below="@+id/imageView1"
+        android:gravity="center"
+        android:text="@string/universities"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btnAddUniversity"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_university"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btnAddUniversity"
+        android:id="@+id/containerUniversitites"
+        android:orientation="vertical"
+        >
+    </LinearLayout>
+
+</RelativeLayout>
